@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BindAndOn</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" v-on:click="btnHandle">click me </button>
+        <hr/>
+        <p v-text="html"></p>
+        <p v-html="html"></p>
+         <img v-if="show" v-bind:src="imgSrc"  width="200px">
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                imgSrc: 'Teemo_Splash_Tile_0.jpg',
+                show: false,
+                html: '<img v-if="show" src="Teemo_Splash_Tile_0.jpg"  width="200px">'
+            },
+            methods:{
+                btnHandle: function(){
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p v-for="(item, index) in list" :attr="item.id">{{index}}:{{100+item.id}}|{{item.name}}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                list: [
+                    {
+                        id: 0,
+                        name: 'A1'
+                    },
+                    {
+                        id: 1,
+                        name: 'A2'
+                    },
+                    {
+                        id: 2,
+                        name: 'A3'
+                    },
+                    {
+                        id: 3,
+                        name: 'A4'
+                    },
+                    {
+                        id: 4,
+                        name: 'A5'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>
