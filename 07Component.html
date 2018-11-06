@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 QWER-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <h5>2. 引用组件</h5>
+        <hello/>
+    </div>
+    <script>
+        // 1. 声明全局组件
+        Vue.component('Hello',{
+            template:`
+                <h1>编写模板的方式和之前一样，{{now}}</h1>
+            `,
+            // data选项必须是函数
+            data: function() {
+                return {
+                    now: new Date()
+                }
+            }
+        })
+        var app1 = new Vue({
+            el: '#app1',
+        })
+    </script>
+
+    <hr/>
+
+    <div id="app2">
+        <div>
+            <h5>2. 引用组件</h5>
+            <hello/>
+            <word/>
+        </div>
+    </div>
+    <script>
+        var app2 = new Vue({
+            el: '#app2',
+            components:{
+                'Word':{
+                    template:`
+                        <h1>局部组件，只能在次组件使用，{{now}}</h1>
+                    `,
+                    data: function() {
+                        return {
+                            now: new Date()
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

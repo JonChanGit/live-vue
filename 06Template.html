@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 QWER-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1"></div>
+    <script>
+        var app1 = new Vue({
+            el: '#app1',
+            data: {
+                now: new Date()
+            },
+            template:`
+                <h1>直接在选项中编辑模板{{now}}</h1>
+            `
+        })
+    </script>
+    <hr/>
+    
+    <div id="app2"></div>
+    <template id="demo2">
+        <div>
+            <h2 style="color:red">我是template标签模板</h2>
+            <p>{{msg}}</p>
+        </div>
+    </template>
+    <script>
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                msg: '这种写法更像是在写HTML代码，就算不会写Vue的人，也可以制作页面'
+            },
+            template: '#demo2'
+        })
+    </script>
+    <hr/>
+
+    <div id="app3"></div>
+    <script type="x-template" id="demo3">
+        <div>
+            <h2 style="color:#ccc">使用script：x-template标签模板</h2>
+            <p>{{msg}}</p>
+        </div>
+    </script>
+    <script>
+        var app2 = new Vue({
+            el: '#app3',
+            data: {
+                msg: '这种写法可以让模板文件从外部引入'
+            },
+            template: '#demo3'
+        })
+    </script>
+</body>
+</html>

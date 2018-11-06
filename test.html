@@ -12,6 +12,7 @@
 <body>
     <div id="app">
         <el-button @click="visible = true">check</el-button>
+        <p>总天数：{{selectAllDate.length}}</p>
         <br />
         <el-date-picker v-model="value1" @change="change1" type="daterange" :value-format="dateFormat" range-separator="至"
             start-placeholder="开始日期" end-placeholder="结束日期">
